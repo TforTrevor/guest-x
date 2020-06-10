@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+    <div [style.display]="loaded ? 'none' : 'inherit'" class="spinner">
+        <mat-spinner></mat-spinner>
+    </div>    
+    <image-cropper
+        [imageFile]="imageFile"
+        [maintainAspectRatio]="false"
+        [aspectRatio]="4 / 3"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+        [style.display]="loaded ? 'inherit' : 'none'"
+    ></image-cropper> 
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button color="primary" (click)="cropImage()">Crop</button>
+</div>

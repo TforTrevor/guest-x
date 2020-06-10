@@ -1,0 +1,37 @@
+mat-card {
+    margin: 10px;
+}
+
+.menu-item {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .mat-expansion-panel {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    .mat-raised-button {
+        flex-shrink: 0;
+    }
+}
+
+.mat-raised-button {
+    max-height: 48px;
+}
+
+.add-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    .mat-form-field {
+        margin-right: 10px;
+    }
+
+    .mat-raised-button {
+        margin-bottom: 1.34375em;
+        height: 51.25px;
+    }
+}

@@ -1,0 +1,27 @@
+mat-card {
+    margin: 10px;
+}
+.title {
+    font-weight: 500;
+}
+.user-info {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    //padding-top: 16px;
+    //padding-bottom: 16px;
+}
+.content {
+    padding: 16px;
+}
+.password {
+    display: flex;
+    flex-wrap: wrap;
+    //padding-top: 16px;
+    //padding-bottom: 16px;
+    width: 100%;
+}
+mat-divider {
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+}

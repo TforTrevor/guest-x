@@ -1,0 +1,16 @@
+<div class="box">
+    <mat-toolbar color="primary" class="header">
+        <button mat-icon-button (click)="snav.toggle()" style="margin-right: 16px">
+            <mat-icon>menu</mat-icon>
+        </button>
+        Guest X
+    </mat-toolbar>
+    <mat-sidenav-container class="content">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'">
+            <dropdown-menu [menuOptions]="menuOptions"></dropdown-menu>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

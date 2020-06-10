@@ -1,0 +1,20 @@
+<div *ngIf="menuOptions && menuOptions.length > 0">
+    <div *ngFor="let menuOption of menuOptions">
+        <mat-expansion-panel 
+            (opened)="openedCallback(menuOption)" 
+            (closed)="closedCallback(menuOption)"
+            *ngIf="menuOption.children && menuOption.children.length > 0; else noChildren">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{menuOption.name}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <dropdown-menu class="body" [menuOptions]="menuOption.children"></dropdown-menu> 
+        </mat-expansion-panel>
+        <ng-template #noChildren>
+            <button (click)="clickedCallback(menuOption)" mat-raised-button class="button">
+                {{menuOption.name}}
+            </button>
+        </ng-template>
+    </div>
+</div>

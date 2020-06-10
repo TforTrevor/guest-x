@@ -1,0 +1,72 @@
+@import '~@angular/material/theming';
+
+.container
+{
+    margin: 10px;
+}
+
+.mat-checkbox
+{
+    padding-right: 8px;
+}
+
+.add-schedule
+{
+    display: flex;
+
+    .mat-form-field
+    {
+        margin-right: 10px;
+    }
+}
+
+.schedule-item
+{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .mat-expansion-panel 
+    {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    .mat-raised-button 
+    {
+        flex-shrink: 0;
+        max-height: 48px;
+    }
+
+    .time
+    {
+        .mat-form-field
+        {
+            margin-right: 20px;
+        }
+    }
+}
+
+.add-item 
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    .mat-form-field 
+    {
+        margin-right: 10px;
+    }
+
+    .mat-raised-button 
+    {
+        margin-bottom: 1.34375em;
+        height: 51.25px;
+    }
+
+    .mat-checkbox
+    {
+        margin-bottom: 1.34375em;
+        height: 25.625px;
+    }
+}

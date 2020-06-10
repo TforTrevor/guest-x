@@ -1,0 +1,33 @@
+<mat-card class="card">
+    <mat-card-title>Menus</mat-card-title>
+    <mat-card-content>
+        <div class="menu-item" *ngFor="let menu of menus" @fadeInOut>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{menu.name}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ng-template matExpansionPanelContent>
+                    <img [src]="menu.link" style="width: 100%">
+                </ng-template>                
+            </mat-expansion-panel>
+            <!--<button mat-raised-button color="primary" (click)="cropMenu(menu)" style="margin-right: 10px">Crop</button>-->
+            <button mat-raised-button color="warn" (click)="removeMenu(menu)">Remove</button>
+        </div>
+        <ordyx-divider [inset]="true"></ordyx-divider>
+        <div class="add-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Menu Name</mat-label>
+                <input #nameInput matInput placeholder="Menu Name">
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Logo</mat-label>
+                <ngx-mat-file-input #fileInput formControlName="outline" placeholder="Logo" [accept]="'.png, .jpg'"></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="cropImage(nameInput.value, fileInput.value)">Add</button>
+        </div>        
+    </mat-card-content>
+</mat-card>
