@@ -47,7 +47,7 @@ export class OrdyxImageCropperComponent {
 
   cropImage()
   {
-    this.data.callback(this.data.name, this.croppedImage);
+    this.data.callback(this.data.name, this.croppedImage, this.data.schedules);
     this.dialogRef.close();
   }
 }

@@ -1,7 +1,7 @@
 <mat-card class="card">
     <mat-card-title>Menus</mat-card-title>
     <mat-card-content>
-        <div class="menu-item" *ngFor="let menu of menus" @fadeInOut>
+        <div class="menu-item" *ngFor="let menu of store.menus" @fadeInOut>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -9,8 +9,21 @@
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <ng-template matExpansionPanelContent>
-                    <img [src]="menu.link" style="width: 100%">
-                </ng-template>                
+                    <mat-tab-group dynamicHeight="true">
+                        <mat-tab *ngFor="let image of store.images; let i = index" [label]="i + 1">
+                            <div class="image-tab">
+                                <img [src]="image" style="width: 100%">
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                    <ordyx-divider inset="true"></ordyx-divider>
+                    <div class="schedule">
+                        <h3 class="title">Schedules:</h3>
+                        <div *ngFor="let schedule of menu.schedules">
+                            {{schedule.name}}
+                        </div>
+                    </div>
+                </ng-template>
             </mat-expansion-panel>
             <!--<button mat-raised-button color="primary" (click)="cropMenu(menu)" style="margin-right: 10px">Crop</button>-->
             <button mat-raised-button color="warn" (click)="removeMenu(menu)">Remove</button>
@@ -23,11 +36,17 @@
                 <mat-hint></mat-hint>
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Logo</mat-label>
+                <mat-label>Image</mat-label>
                 <ngx-mat-file-input #fileInput formControlName="outline" placeholder="Logo" [accept]="'.png, .jpg'"></ngx-mat-file-input>
                 <mat-icon matSuffix>folder</mat-icon>
             </mat-form-field>
-            <button mat-raised-button color="primary" (click)="cropImage(nameInput.value, fileInput.value)">Add</button>
+            <mat-form-field appearance="outline">
+                <mat-label>Schedule</mat-label>
+                <mat-select #menuSchedules multiple>
+                    <mat-option *ngFor="let schedule of store.schedules" [value]="schedule">{{schedule.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="cropImage(nameInput.value, fileInput.value, menuSchedules.value)">Add</button>
         </div>        
     </mat-card-content>
 </mat-card>

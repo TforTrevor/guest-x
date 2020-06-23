@@ -1,29 +1,21 @@
 <mat-card>
-    <mat-card-title>Upload Logo</mat-card-title>
+    <mat-card-title>Store</mat-card-title>
     <mat-card-content>
-        <ordyx-divider [inset]="true"></ordyx-divider>
+        <ordyx-divider inset="true"></ordyx-divider>
+        <store-info></store-info>
+        <ordyx-divider inset="true"></ordyx-divider>
+        <div class="title">Upload Logo</div>
         <mat-form-field appearance="outline">
             <mat-label>Logo</mat-label>
-            <ngx-mat-file-input formControlName="outline" placeholder="Logo" [accept]="'.png, .jpg'"></ngx-mat-file-input>
+            <ngx-mat-file-input formControlName="outline" placeholder="Logo" [accept]="'.png, .jpg'">
+            </ngx-mat-file-input>
             <mat-icon matSuffix>folder</mat-icon>
         </mat-form-field>
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-title>Color and Font</mat-card-title>
-    <mat-card-content>
-        <ordyx-divider [inset]="true"></ordyx-divider>      
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-title>Tip Guide</mat-card-title>
-    <mat-card-content>
-        <ordyx-divider [inset]="true"></ordyx-divider>      
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-title>Receipt Settings</mat-card-title>
-    <mat-card-content>
-        <ordyx-divider [inset]="true"></ordyx-divider>      
+        <ordyx-divider inset="true"></ordyx-divider>
+        <div class="title">Color and Font</div>
+        <ordyx-divider inset="true"></ordyx-divider>
+        <div class="title">Tip Guide</div>
+        <ordyx-divider inset="true"></ordyx-divider>
+        <div class="title">Receipt Settings</div>
     </mat-card-content>
 </mat-card>

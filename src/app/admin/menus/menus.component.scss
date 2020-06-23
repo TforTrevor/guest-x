@@ -35,3 +35,21 @@ mat-card {
         height: 51.25px;
     }
 }
+
+.image-tab
+{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.schedule
+{
+    display: flex;
+    align-items: center;
+}
+
+.title 
+{
+    font-weight: 500;
+    margin-bottom: 0px;
+}

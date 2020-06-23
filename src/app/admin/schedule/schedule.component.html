@@ -1,11 +1,11 @@
 <mat-card class="container">
     <mat-card-title>Schedule</mat-card-title>
     <mat-card-content>
-        <div *ngFor="let schedule of scheduleItems" class="schedule-item" @fadeInOut>
+        <div *ngFor="let schedule of store.schedules" class="schedule-item" @fadeInOut>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{schedule.name}}
+                        {{schedule.title}}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="time">

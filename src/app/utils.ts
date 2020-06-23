@@ -1,5 +1,7 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 
+export const rootURL = "http://192.168.2.77:8080/";
+
 export function removeFromArray(item: any, array: any[]) 
 {
     array.splice(array.indexOf(item, 0), 1);
@@ -20,3 +22,14 @@ export const fadeInOut = trigger('fadeInOut', [
         animate('.4s ease-out', style({ opacity: '1', height: '48px', paddingTop: '10px', paddingBottom: '10px' })),
     ])
 ]);
+
+export function deleteEmtpyValues(object: Object)
+{
+    for (let property in object)
+    {
+        if (object[property] == null || object[property] == "")
+        {
+            delete object[property];
+        }
+    }
+}

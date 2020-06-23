@@ -3,6 +3,8 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MenuOption, MenuCallback } from '../dropdownMenu/dropdownMenu.component';
 import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
+import { StoreService } from './store/store.service';
+import { Store } from './store/store';
 
 @Component({
   selector: 'admin',
@@ -15,6 +17,7 @@ export class AdminComponent {
     {name: "User Profile", id: "user-profile", clickedCallback: this.changeContent.bind(this)},
     {name: "Menus", id: "menus", clickedCallback: this.changeContent.bind(this)},
     {name: "Schedule", id: "schedule", clickedCallback: this.changeContent.bind(this)},
+    {name: "Add Store", id: "add-store", clickedCallback: this.changeContent.bind(this)},
     {name: "Store Options", id: "store-options", children: [
       {name: "Users", id: "store-users", clickedCallback: this.changeContent.bind(this)},
       {name: "Account", id: "store-account", clickedCallback: this.changeContent.bind(this)},
@@ -26,10 +29,15 @@ export class AdminComponent {
 
   private mobileQueryListener: () => void;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private route: ActivatedRoute) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private route: ActivatedRoute, private storeService: StoreService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
+  }
+
+  ngOnInit()
+  {
+    //let store: Store = this.storeService.getStore();
   }
 
   ngAfterViewInit() {

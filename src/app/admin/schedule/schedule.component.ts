@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { fadeInOut, removeFromArray } from 'src/app/utils';
+import { fadeInOut, removeFromArray, rootURL } from 'src/app/utils';
+import { Schedule } from './schedule';
+import { StoreService } from '../store/store.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'schedule',
@@ -11,31 +15,30 @@ import { fadeInOut, removeFromArray } from 'src/app/utils';
 })
 export class ScheduleComponent 
 {
-  scheduleItems: ScheduleItem[] = [
-    {name: "Lunch", days: ["Sunday", "Saturday"]}
-  ];
-
   scheduleDays: string[] = [];
   days: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-  addSchedule(name: string)
+  constructor(public store: StoreService, private http: HttpClient) {}
+
+  ngOnInit()
   {
-    this.scheduleItems.push({name: name, days: this.scheduleDays});
+    this.store.getStore().subscribe(res => {
+      this.store.getSchedules();
+    })
   }
 
-  removeSchedule(schedule: ScheduleItem)
+  addSchedule(name: string)
   {
-    removeFromArray(schedule, this.scheduleItems);
+    //this.store.schedules.push({name: name, days: this.scheduleDays});
+  }
+
+  removeSchedule(schedule: Schedule)
+  {
+    removeFromArray(schedule, this.store.schedules);
   }
 
   output()
   {
-    console.log(this.scheduleItems);
+    console.log(this.store.schedules);
   }
-}
-
-interface ScheduleItem
-{
-  name: string;
-  days: string[];
 }

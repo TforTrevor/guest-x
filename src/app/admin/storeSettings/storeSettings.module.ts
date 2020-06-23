@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { OrydxDividerModule } from 'src/app/ordyxDivider/ordyxDivider.module';
+import { StoreInfoModule } from './storeInfo/storeInfo.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OrydxDividerModule } from 'src/app/ordyxDivider/ordyxDivider.module';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    OrydxDividerModule
+    OrydxDividerModule,
+    StoreInfoModule
   ],
   exports: [
     StoreSettingsComponent

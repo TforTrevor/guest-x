@@ -14,6 +14,8 @@ import { OrdyxImageCropperComponent } from './ordyxImageCropper/ordyxImageCroppe
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OrydxDividerModule } from 'src/app/ordyxDivider/ordyxDivider.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { OrydxDividerModule } from 'src/app/ordyxDivider/ordyxDivider.module';
     MatDialogModule,
     ImageCropperModule,
     MatProgressSpinnerModule,
-    OrydxDividerModule
+    OrydxDividerModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   exports: [
     MenusComponent

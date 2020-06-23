@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="info" *ngIf="!editStore">
+        <div *ngIf="store != null">
+            <div class="info-grid">
+                <div class="title">Name:</div>
+                <div></div>
+                <div></div>
+                <div>{{store.name}}</div>
+            </div>
+            <div class="info-grid">
+                <div class="title">Address 1:</div>
+                <div class="title">Address 2:</div>
+                <div class="title">Urbanization:</div>
+                <div>{{store.address1}}</div>
+                <div>{{store.address2}}</div>
+                <div>{{store.urbanization}}</div>
+                <div class="title">City:</div>
+                <div class="title">State:</div>
+                <div class="title">Zip:</div>
+                <div>{{store.city}}</div>
+                <div>{{store.stateAbbrv}}</div>
+                <div>{{store.zip5}} {{store.zip4}}</div>               
+            </div>
+            <div class="info-grid">
+                <div class="title">Phone:</div>
+                <div class="title">Email:</div>
+                <div></div>
+                <div>{{store.phone}}</div>
+                <div>{{store.email}}</div>
+            </div>
+            <div class="info-grid">
+                <div class="title">Time Zone:</div>
+                <div class="title">Tables:</div>
+                <div></div>
+                <div>{{store.timeZoneName}}</div>
+                <div>{{store.tableCount}}</div>
+            </div>
+            <button mat-raised-button color="primary" (click)="editStore = true">Edit</button>
+        </div>        
+    </div>
+    <div class="edit" *ngIf="editStore">
+        <store (valueChanged)="updateForm($event)"></store>
+        <button mat-raised-button color="primary" (click)="patchStore()">Submit</button>
+    </div>
+</div>
